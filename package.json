@@ -1,0 +1,26 @@
+{
+  "name": "crm",
+  "version": "1.0.0",
+  "description": "CRM",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "rohitiwari297"
+  },
+  "keywords": [
+    "CRM"
+  ],
+  "author": "Rohit Tripathi",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "gitignore": "^0.7.0",
+    "mongoose": "^8.19.2",
+    "nodemon": "^3.1.10"
+  }
+}
