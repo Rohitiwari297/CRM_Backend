@@ -17,6 +17,7 @@
   "author": "Rohit Tripathi",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "gitignore": "^0.7.0",

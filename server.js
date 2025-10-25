@@ -6,6 +6,7 @@
 
 import express from "express";
 import dotenv from "dotenv";
+import db_connecton from "./config/db_connection.js";
 
 
 // create instance of express
@@ -13,6 +14,8 @@ const app = express();
 
 // configure environment variables
 dotenv.config();
+//db_connection
+db_connecton()
 
 //port
 const port = process.env.PORT || 3000;
