@@ -7,6 +7,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import db_connecton from "./config/db_connection.js";
+import authRoute from './routes/auth.routes.js'
 
 
 // create instance of express
@@ -16,6 +17,15 @@ const app = express();
 dotenv.config();
 //db_connection
 db_connecton()
+
+//parse the JSON
+app.use(express.json())
+
+/**
+ * Let's stitch the auth route
+ */
+app.use('/crm/api/v1', authRoute)
+
 
 //port
 const port = process.env.PORT || 3000;
