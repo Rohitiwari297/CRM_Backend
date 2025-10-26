@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import {userTypeConst, userStatusConst} from '../utils/constant.js'
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -24,15 +25,15 @@ const userSchema = new mongoose.Schema({
     },
     userType: {
         type: String,
-        enum: [ 'CUSTOMER','ADMIN', 'ENGINEER'],
-        default: 'CUSTOMER',
+        enum: [ userTypeConst.customer,userTypeConst.admin, userTypeConst.engineer],
+        default: userTypeConst.customer,
         required: true
     },
     userStatus:{
         type: String,
-        enum: ['APPROVED', 'PENDING', 'BLOCKED'],
+        enum: [userStatusConst.approved, userStatusConst.pending, userStatusConst.blocked],
         required: true,
-        default: 'APPROVED'
+        default: userStatusConst.approved
     }
 
 },{
