@@ -25,7 +25,6 @@ import { userResponse } from '../utils/objectConverter.js';
  */
     export const getAllUsers = async (req, res) => {
     const users = await User.find();
-    console.log(' users detials', users);
     return res.status(200).send(userResponse(users));
     
 }
