@@ -4,7 +4,7 @@ import { isAdmin, verifyToken } from '../middlewares/authJwt.js';
 
 const router = express.Router();
 
-router.get('/profile', verifyToken, isAdmin, getAllUsers);
+router.get('/users', getAllUsers);
 // router.put('/profile', updateUserProfile);
 
 export default router;
