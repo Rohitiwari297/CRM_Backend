@@ -91,7 +91,8 @@ export const signin =  async (req, res) => {
 
         //Generate the JWT signed  token and will return that
         const token = jwt.sign({id: user.userId},process.env.SECRETE_KEY, {
-            expiresIn : 120
+            // expiresIn : 120
+            expiresIn : process.env.JWT_EXP
         });
 
         //Return the final response
