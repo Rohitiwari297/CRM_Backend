@@ -9,3 +9,9 @@ export const userStatusConst = {
     approved: 'APPROVED',
     blocked: 'BLOCKED',
 };
+
+export const ticketStatusesConst = {
+    open: 'OPEN',
+    closed: 'CLOSED',
+    blocked: 'BLOCKED', 
+}

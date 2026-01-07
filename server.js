@@ -9,6 +9,7 @@ import dotenv from "dotenv";
 import db_connecton from "./config/db_connection.js";
 import authRoute from './routes/auth.routes.js'
 import userRoute from './routes/user.routes.js'
+import ticket from "./routes/ticket.routes.js";
 
 
 // create instance of express
@@ -27,6 +28,7 @@ app.use(express.json())
  */
 app.use('/crm/api/v1', authRoute)
 app.use('/crm/api/v1', userRoute)
+app.use('/crm.api/vi', ticket)
 
 
 

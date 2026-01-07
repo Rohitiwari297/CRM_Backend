@@ -1,6 +1,6 @@
 import express from 'express'
 import {signin, signup} from '../controllers/auth.controller.js'
-import validateUserrequestBody from '../middlewares/verifyUserRequestBody.js';
+import {validateUserrequestBody} from '../middlewares/verifyUserRequestBody.js';
 
 const route = express.Router();
 

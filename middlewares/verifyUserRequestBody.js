@@ -1,7 +1,7 @@
 import User from '../models/user.model.js'
 import {userTypeConst, userStatusConst} from '../utils/constant.js'
 
-const validateUserrequestBody = async (req, res, next) => {
+export const validateUserrequestBody = async (req, res, next) => {
     //validate the name
     if ( !req.body.name) {
         res.status(400).json({
@@ -71,4 +71,35 @@ const validateUserrequestBody = async (req, res, next) => {
  
 }
 
-export default validateUserrequestBody;
+
+export const validateUserStatusAndUserType = async (req, res, next) => {
+    //Validate user type
+    const userType = req.body.userType;
+    const possibleUserTypes = [userTypeConst.admin, userTypeConst.customer, userTypeConst.engineer]
+    if(userType && !possibleUserTypes.includes(userType)) {
+        res.status(400).json({
+            success: false,
+            message: 'User type provided is invalid. Possible values: [ CUSTOMER | ENGINEER | ADMIN ]'
+        })
+        return;
+    }
+
+    // Validate user Status
+    const userStatus = req.body.userStatus;
+    const possibleUserStatus = [userStatusConst.approved, userStatusConst.blocked, userStatusConst.pending];
+     if (userStatus && !possibleUserStatus.includes(userStatus)){
+        res.status(400).json({
+            success: false,
+            message: 'User status provided is invalid. Possible vlaues: [ APPROVED | BLOCKED | PENDING]'
+        })
+        return;
+     }
+
+     // if all are valid
+     next()
+
+}
+
+
+
+

@@ -83,3 +83,34 @@ export const getLoggedInUser = async (req, res) => {
 
 
 }
+
+/**
+ * Update the user and their details
+ */
+export const updateUser = async (req, res) => {
+        const userIdRequest = req.params.userId;
+
+
+        try {
+
+                const updatedUser = await User.findOneAndUpdate({userId: userIdRequest},{
+                        userName: req.body.userName,
+                        userStatus: req.body.userStatus,
+                        userType: req.body.userType
+                }).exec();
+                
+                // send response
+                res.status(200).json({
+                        success: true,
+                        message: 'user record has been successfully updated',
+                        data: updatedUser
+                })
+                
+        } catch (error) {
+             res.status(500).json({
+                success: false,
+                message: 'Server error while updating the user',
+                error: error.message
+             })   
+        }
+}
