@@ -1,10 +1,14 @@
 import express from 'express'
 import { verifyToken } from '../middlewares/authJwt.js'
-import { createTicket } from '../controllers/ticket.controller.js'
+import { createTicket, findTicketBasedOnId, getAllTickets, updateTicket } from '../controllers/ticket.controller.js'
+import { validateTicketReqBody, validateTicketStatus } from '../middlewares/verifyTicketRequestBody.js'
 
 
-const ticket = express.Router()
+const route = express.Router()
 
-ticket.post('/ticket', verifyToken, createTicket)
+route.post('/tickets', verifyToken, validateTicketReqBody, createTicket);
+route.put('/tickets/:id', verifyToken, validateTicketStatus, updateTicket)
+route.get('/tickets', verifyToken, getAllTickets)
+route.get("/tickets/:id", verifyToken, findTicketBasedOnId)
 
-export default ticket
+export default route

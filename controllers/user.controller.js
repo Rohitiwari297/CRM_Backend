@@ -103,7 +103,11 @@ export const updateUser = async (req, res) => {
                 res.status(200).json({
                         success: true,
                         message: 'user record has been successfully updated',
-                        data: updatedUser
+                        data: {
+                                Name: updateUser.name,
+                                userId: updateUser.userId,
+                                email: updateUser.email,
+                        }
                 })
                 
         } catch (error) {
